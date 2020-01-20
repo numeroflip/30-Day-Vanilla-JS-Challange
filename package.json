@@ -1,0 +1,22 @@
+{
+  "name": "30-day-vanilla-js-challange",
+  "version": "1.0.0",
+  "description": "30 Day JS Challenge Navigation site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/numeroflip/30-Day-Vanilla-JS-Challange.git"
+  },
+  "author": "Áron Berényi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/numeroflip/30-Day-Vanilla-JS-Challange/issues"
+  },
+  "homepage": "https://github.com/numeroflip/30-Day-Vanilla-JS-Challange#readme",
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
+  }
+}

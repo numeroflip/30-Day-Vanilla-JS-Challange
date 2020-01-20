@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Drum Kit</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,700&display=swap" rel="stylesheet"> 
+</head>
+<body>
+
+
+  <div class="keys">
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound">clap</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound">hihat</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+      <span class="sound">kick</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+      <span class="sound">openhat</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>G</kbd>
+      <span class="sound">boom</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>H</kbd>
+      <span class="sound">ride</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>J</kbd>
+      <span class="sound">snare</span>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>K</kbd>
+      <span class="sound">tom</span>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>L</kbd>
+      <span class="sound">tink</span>
+    </div>
+  </div>
+
+  <audio data-key="65" preload="preload" src="sounds/clap.wav"></audio>
+  <audio data-key="83" preload="preload" src="sounds/hihat.wav"></audio>
+  <audio data-key="68" preload="preload" src="sounds/kick.wav"></audio>
+  <audio data-key="70" preload="preload" src="sounds/openhat.wav"></audio>
+  <audio data-key="71" preload="preload" src="sounds/boom.wav"></audio>
+  <audio data-key="72" preload="preload" src="sounds/ride.wav"></audio>
+  <audio data-key="74" preload="preload" src="sounds/snare.wav"></audio>
+  <audio data-key="75" preload="preload" src="sounds/tom.wav"></audio>
+  <audio data-key="76" preload="preload" src="sounds/tink.wav"></audio>
+
+<script>
+  let item
+window.addEventListener('keydown', e => {
+  const key = e.keyCode;
+  let keyClasses = Array.from(document.querySelectorAll('.key'))
+                   .map(cls => parseInt(cls.getAttribute('data-key')));
+  if (keyClasses.includes(e.keyCode)) {
+    // Fire the audio
+    const audio = document.querySelector(`audio[data-key="${key}"`)
+    item = document.querySelector(`.key[data-key="${key}"]`);
+    audio.cloneNode().play();
+    // Add "playing" class to the played button
+    item.classList.add('playing');
+    // setTimeout(() => item.classList.remove('playing'), 70);
+  };
+})
+function removeTransition(e) {
+  if (e.propertyName !== 'transform') return;
+  this.classList.remove('playing');
+}
+
+const keys = Array.from(document.querySelectorAll('.key'));
+keys.forEach(key => key.addEventListener('transitionend' ,removeTransition))
+</script>
+
+
+</body>
+</html>

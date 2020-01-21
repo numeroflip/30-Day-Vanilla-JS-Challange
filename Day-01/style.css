@@ -1,7 +1,6 @@
 html {
   font-family: 'Oswald', sans-serif;
   font-size: 10px;
-  background: url(https://i.imgur.com/b9r5sEL.jpg) bottom center;
   background-size: cover;
 }
 
@@ -12,7 +11,7 @@ body,html {
   color: inherit;
 }
 body {
-  background: url(https://images.unsplash.com/photo-1541851953232-85d34a532663?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
+  background: url(./bg-img.webp);
   background-position: center;
   background-size: cover;
 
